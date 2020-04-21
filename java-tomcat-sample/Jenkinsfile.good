@@ -12,7 +12,13 @@ pipeline {
                 }
             }
         }
+        stage('Deploy in Staging Environment'){
+            steps{
+                build job: 'deploy_artifacts_to_staging_env'
 
+            }
+            
+        }
         stage('Deploy to Production'){
             steps{
                 timeout(time:5, unit:'DAYS'){
